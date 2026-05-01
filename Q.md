@@ -1,44 +1,29 @@
+外面文件夹~/Zai/team的teams应该是用不着了对吧？因为其实已经在.data中持久化了， 外面的~/Zai/team是原有的部分， 但是已经过时了我的理解通信中可能没用到不需要这部分？我需要详细知道现在如何实现的多agent通信？ task - centric是怎么实现的？ 
+
+为什么这里是空的？
+
 ```
-(base) ubuntu@vps-2a3a4c57:~/Zai/.data/carenote/memory/users$ ls -laht
-total 16K
-drwxr-xr-x 4 ubuntu ubuntu 4.0K Apr 30 03:00 cmok2cbpn0000rkiarii0yhaf
-drwxrwxr-x 4 ubuntu ubuntu 4.0K Apr 30 03:00 .
-drwxrwxr-x 4 ubuntu ubuntu 4.0K Apr 29 15:39 _sample
-drwxrwxr-x 4 ubuntu ubuntu 4.0K Apr 29 15:30 ..
-(base) ubuntu@vps-2a3a4c57:~/Zai/.data/carenote/memory/users$ cd cmok2cbpn0000rkiarii0yhaf/
-(base) ubuntu@vps-2a3a4c57:~/Zai/.data/carenote/memory/users/cmok2cbpn0000rkiarii0yhaf$ ls -laht
-total 20K
-drwxr-xr-x 4 ubuntu ubuntu 4.0K Apr 30 03:00 .
--rw-r--r-- 1 ubuntu ubuntu  474 Apr 30 03:00 MEMORY.md
-drwxr-xr-x 2 ubuntu ubuntu 4.0K Apr 30 03:00 rollout_summaries
-drwxr-xr-x 2 ubuntu ubuntu 4.0K Apr 30 03:00 skills
-drwxrwxr-x 4 ubuntu ubuntu 4.0K Apr 30 03:00 ..
-(base) ubuntu@vps-2a3a4c57:~/Zai/.data/carenote/memory/users/cmok2cbpn0000rkiarii0yhaf$ 
-```
-
-
-
-没理解为什么这里有skills？cmok2cbpn0000rkiarii0yhaf 这个是什么？ session吗？
-
-外面文件夹的teams应该是用不着了对吧？因为其实已经在.data中持久化了， 外面的是原有的部分， 但是已经过时了
-
-Auto dream要改调整
-
-图片生成的prompt要改
-
-
-
-我的理解通信中可能没用到不需要这部分：
+Team conversation
+How the helpers coordinated — mailbox messages, shared notes, and per-agent runs.
 
 Messages between helpers (0)
-
 No direct mailbox traffic this visit — the helpers coordinated through the shared notes (blackboard) on the right and the agent runs below it. Click any blackboard key to read what they wrote.
+```
+
+请您详细给我解释目前的多agent通信到底是如何具体实现的全流程， 请您彻底详细深入的把每一个细节讲清楚，请您多结合流程图讲清楚？
 
 
 
-一些agent prompts需要优化
+现在我发现一个严重的问题， 由于transcript在医护问诊的时候其实经常会有噪音， 而且会出现一些识别不准的情况， 例如：“Transcript (3 turns)
 
+item_DaMs514bvBx9duIjTCDL1 · completed · ord:high
 
+water
 
-目前没有展示reminder也没有记忆召回， 也没有主动的auto dream的展示。
+item_DaMs7o6qnSYdJ7vBXIQvz · completed · ord:high
 
+I had a fever and a cough for three days and am allergic to penicillin.
+
+item_DaMsDYFIdstQZkT1ul9QV · completed · ord:high
+
+Yeah, in that case, please take this medicine once a day after meals for three days, and if the fever does not improve after three days, please come back next Friday for a follow-up. And please do a blood test tomorrow morning and bring the report to your next visit.”， 我开始说的doctor就被识别成了water， 导致我的多agent团队合作的时候， 就会受到这个噪音的影响， 例如这是我的团队回答结果

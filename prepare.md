@@ -283,9 +283,9 @@ The real gap is not only medical knowledge. It is the handoff from clinical conv
 
 Clariose closes that gap.
 
-During the visit, the browser connects to OpenAI Realtime and captures the conversation as live transcript turns.
+During the visit, the browser connects to OpenAI Services and captures the conversation as live transcript turns.
 
-When the patient pauses or ends a segment, Clariose sends the transcript to a persistent multi-agent care team.
+When the patient pauses or ends a visit, Clariose sends the transcript to a persistent multi-agent care team.
 
 Each agent has a focused role: one verifies transcript quality, one extracts medical instructions, one generates clarification questions, one drafts medication and follow-up tasks, one prepares caregiver updates, and one applies safety guardrails.
 
